@@ -3,7 +3,6 @@
 ## 구현 목표
 
 - [x] 소셜 로그인
-- [x] auth를 기준으로 API 보호
 - [x] 서버사이드 세션 처리
 
 <hr><br>
@@ -30,13 +29,7 @@ pages: {
 }
 ```
 
-<hr><br>
-
-restricted의 용도는 특정 쿼리시에 auth를 체크하여 다른 리턴을 하기위해 사용되는 용도
-
 <hr>
 
-- [JWT_SESSION_ERROR]
-- [MISSING_NEXTAUTH_API_ROUTE_ERROR]
-- [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-- 정적 배포 후 환경 변수 못 읽는 오류 해결
+- [x] client side에서 session 처리시 새로고침하면 깜빡이는 현상 해결
+  > getServerSideProps와 getSession을 이용하여 서버사이드 렌더링 단계에서 세션 정보 주입

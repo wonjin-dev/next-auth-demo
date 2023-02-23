@@ -1,5 +1,10 @@
-import {signIn, signOut, useSession} from 'next-auth/react';
-import Link from 'next/link';
+import {
+  getSession,
+  GetSessionParams,
+  signIn,
+  signOut,
+  useSession,
+} from 'next-auth/react';
 import {Fragment} from 'react';
 
 export default function Home() {
@@ -25,4 +30,14 @@ export default function Home() {
       </button>
     </Fragment>
   );
+}
+
+export async function getServerSideProps(context: GetSessionParams) {
+  const auth = await getSession(context);
+
+  return {
+    props: {
+      session: auth,
+    },
+  };
 }
